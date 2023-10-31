@@ -1,9 +1,17 @@
 # uic-dining-hall-navigation
 
-Install Node.js
-npm install -g expo-cli
-download the expo go app on your phone to test the app on development server
-run command npm start
-scan the qr code on your phone to test the app
-npm install @react-navigation/native
-npx expo install react-native-screens react-native-safe-area-context
+## Initial Setup
+1. Install **Node.js** from [https://nodejs.org/en/download](https://nodejs.org/en/download).
+<!-- - npm install -g expo-cli -->
+
+2. Download the **Expo Go** app on your phone to test the app on the development server.
+
+<!-- - npm install @react-navigation/native
+- npx expo install react-native-screens react-native-safe-area-context
+- npm install @react-navigation/native-stack -->
+
+3. On your terminal, run the following commands:
+   - `npm install`
+   - `npm start`
+
+4. Scan the QR code on your phone to test the app.
