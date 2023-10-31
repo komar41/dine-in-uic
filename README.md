@@ -15,3 +15,6 @@
    - `npm start`
 
 4. Scan the QR code on your phone to test the app.
+
+### Home Screen
+<img src="assets/home.png" alt="home screen" style="width:300px;"/>
