@@ -2,7 +2,6 @@ import { ImageBackground, Button, View} from 'react-native';
 
 const image = {uri: 'https://i.pinimg.com/564x/d8/b3/57/d8b357996895f53612208227d0b4bceb.jpg'};
 
-
 function HomeScreen({ navigation }) {
     return (
       <View style={{ flex: 1}}>
@@ -17,7 +16,7 @@ function HomeScreen({ navigation }) {
   
           <View style={{backgroundColor: '#7570b3', borderRadius: 8, paddingVertical: 12, width: 220}}>
             <Button
-              title="Check Meal Plan"
+              title="Discover Meal Plans"
               color="white"
               onPress={() => navigation.navigate('Recommended Meal Plan')}
             />
