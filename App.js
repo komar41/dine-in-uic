@@ -10,6 +10,7 @@ import SetDietRestrictionScreen from './screens/SetDietRestriction';
 import SetUpPlanScreen from './screens/SetUpPlan';
 import PlanContentScreen from './screens/PlanContent';
 import MyPlansScreen from './screens/MyPlans';
+import DishDetailsScreen from './screens/DishDetails';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,10 +25,10 @@ function App() {
           // options={{ title: 'Overview' }}
         />
         <Stack.Screen name="Set Dietary Restrictions" component={SetDietRestrictionScreen} />
-        <Stack.Screen name="Set Up Meal Plan" component={SetUpPlanScreen}   
-        />
+        <Stack.Screen name="Set Up Meal Plan" component={SetUpPlanScreen} />
         <Stack.Screen name="Plan Content" component={PlanContentScreen} />
         <Stack.Screen name="My Plans" component={MyPlansScreen} />
+        <Stack.Screen name="Dish Details" component={DishDetailsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
