@@ -20,4 +20,7 @@
 5. Scan the QR code on your phone to test the app.
 
 ## Home Screen
-<img src="assets/home.png" alt="home screen" style="width:300px;"/>
+<img src="assets/home.jpg" alt="home screen" style="width:300px;"/>
+
+## Map Screen
+<img src="assets/map.jpg" alt="map screen" style="width:300px;"/>
