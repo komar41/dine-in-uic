@@ -55,6 +55,14 @@ function HomeScreen({ route, navigation }) {
           />
         </View>
 
+        <View style={{backgroundColor: '#e78ac3', borderRadius: 8, paddingVertical: 12, marginBottom: 10, width: 220}}>
+          <Button
+            title="Map"
+            color="white"
+            onPress={() => navigation.navigate('Map')}
+          />
+        </View>
+
         <View style={{backgroundColor: '#fc8d62', borderRadius: 8, paddingVertical: 12, width: 220}}>
           <Button
             title="My Plans"

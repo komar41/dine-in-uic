@@ -11,6 +11,7 @@ import SetUpPlanScreen from './screens/SetUpPlan';
 import PlanContentScreen from './screens/PlanContent';
 import MyPlansScreen from './screens/MyPlans';
 import DishDetailsScreen from './screens/DishDetails';
+import NavigateMapScreen from './screens/Map'
 
 const Stack = createNativeStackNavigator();
 
@@ -29,6 +30,7 @@ function App() {
         <Stack.Screen name="Plan Content" component={PlanContentScreen} />
         <Stack.Screen name="My Plans" component={MyPlansScreen} />
         <Stack.Screen name="Dish Details" component={DishDetailsScreen} />
+        <Stack.Screen name="Map" component={NavigateMapScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
