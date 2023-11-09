@@ -1,4 +1,4 @@
-import { ImageBackground, Button, View} from 'react-native';
+import { ImageBackground, Button, View, Image} from 'react-native';
 import { useState, useEffect } from "react";
 
 const image = {uri: 'https://i.pinimg.com/564x/d8/b3/57/d8b357996895f53612208227d0b4bceb.jpg'};
@@ -37,9 +37,15 @@ function HomeScreen({ route, navigation }) {
   }
 
   return (
-    <View style={{ flex: 1}}>
-      <ImageBackground source={image} resizeMode="cover" style={{flex: 1, justifyContent: 'center',  alignItems: 'center'}}>
-        <View style={{backgroundColor: '#1b9e77', borderRadius: 8, paddingVertical: 12, marginBottom: 10, width: 220}}>
+    <View style={{ flex: 1, justifyContent: 'center',  alignItems: 'center'}}>
+      {/* <ImageBackground source={image} resizeMode="cover" style={{flex: 1, justifyContent: 'center',  alignItems: 'center'}}> */}
+        
+      <Image
+        source={require('../assets/welcome.png')}
+        style={{ position: 'absolute', left: 120, top: 80}}
+      />
+        
+        <View style={{backgroundColor: '#a1d99b', borderRadius: 8, paddingVertical: 12, marginTop: 100, marginBottom: 10, width: 220}}>
           <Button
             title="Set Dietary Restrictions"
             color="white"
@@ -47,7 +53,7 @@ function HomeScreen({ route, navigation }) {
           />
         </View>
 
-        <View style={{backgroundColor: '#7570b3', borderRadius: 8, paddingVertical: 12, marginBottom: 10, width: 220}}>
+        <View style={{backgroundColor: '#74c476', borderRadius: 8, paddingVertical: 12, marginBottom: 10, width: 220}}>
           <Button
             title="Set Up New Plan"
             color="white"
@@ -55,7 +61,7 @@ function HomeScreen({ route, navigation }) {
           />
         </View>
 
-        <View style={{backgroundColor: '#e78ac3', borderRadius: 8, paddingVertical: 12, marginBottom: 10, width: 220}}>
+        <View style={{backgroundColor: '#31a354', borderRadius: 8, paddingVertical: 12, marginBottom: 10, width: 220}}>
           <Button
             title="Map"
             color="white"
@@ -63,7 +69,7 @@ function HomeScreen({ route, navigation }) {
           />
         </View>
 
-        <View style={{backgroundColor: '#fc8d62', borderRadius: 8, paddingVertical: 12, width: 220}}>
+        <View style={{backgroundColor: '#006d2c', borderRadius: 8, paddingVertical: 12, width: 220}}>
           <Button
             title="My Plans"
             color="white"
@@ -71,7 +77,7 @@ function HomeScreen({ route, navigation }) {
           />
         </View>
 
-      </ImageBackground>
+      {/* </ImageBackground> */}
     </View>
     
   );
