@@ -17,7 +17,7 @@ function DishCard({title, image, description, content, navigation, addCalback = 
               navigation.navigate("Dish Details", {
                   title: title,
                   description: description,
-                  items: content
+                  content: content
               })
             }}
         />
