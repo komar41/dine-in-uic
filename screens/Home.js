@@ -47,7 +47,7 @@ function HomeScreen({ route, navigation }) {
           />
         </View>
 
-        <View style={{backgroundColor: '#7570b3', borderRadius: 8, paddingVertical: 12, width: 220}}>
+        <View style={{backgroundColor: '#7570b3', borderRadius: 8, paddingVertical: 12, marginBottom: 10, width: 220}}>
           <Button
             title="Set Up New Plan"
             color="white"
@@ -55,7 +55,7 @@ function HomeScreen({ route, navigation }) {
           />
         </View>
 
-        <View style={{backgroundColor: '#7570b3', borderRadius: 8, paddingVertical: 12, width: 220}}>
+        <View style={{backgroundColor: '#fc8d62', borderRadius: 8, paddingVertical: 12, width: 220}}>
           <Button
             title="My Plans"
             color="white"
