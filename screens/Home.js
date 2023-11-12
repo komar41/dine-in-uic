@@ -5,36 +5,13 @@ const image = {uri: 'https://i.pinimg.com/564x/d8/b3/57/d8b357996895f53612208227
 
 function HomeScreen({ route, navigation }) {
 
-  const [plans, setPlans] = useState([]);
+  const [myplan, setPlan] = useState({});
 
   useEffect(() => {
     if (route.params?.plan) {
-      console.log(route.params?.plan);
-      // Plan updated, do something with `route.params.plan`
+      setPlan(route.params?.plan);
     }
   }, [route.params?.plan]);
-
-  // if index specified overwrite plan
-  const addPlan = (plan, index = null) => {
-    let auxPlans = [];
-    let planIndex = 0
-
-    for(const elem of plans){
-      if(index != null && planIndex == index){
-        auxPlans.push(plan);
-      }else{
-        auxPlans.push(elem);
-      }
-
-      planIndex += 1;
-    }
-
-    if(index == null){
-      auxPlans.push(plan);
-    }
-
-    setPlans(auxPlans);
-  }
 
   return (
     <View style={{ flex: 1, justifyContent: 'center',  alignItems: 'center'}}>
@@ -71,9 +48,9 @@ function HomeScreen({ route, navigation }) {
 
         <View style={{backgroundColor: '#006d2c', borderRadius: 8, paddingVertical: 12, width: 220}}>
           <Button
-            title="My Plans"
+            title="My Plan"
             color="white"
-            onPress={() => navigation.navigate('My Plans')}
+            onPress={() => navigation.navigate({name: 'My Plan', params: {plan: myplan}, merge: true})}
           />
         </View>
 

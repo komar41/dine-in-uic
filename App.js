@@ -9,7 +9,7 @@ import HomeScreen from './screens/Home';
 import SetDietRestrictionScreen from './screens/SetDietRestriction';
 import SetUpPlanScreen from './screens/SetUpPlan';
 import PlanContentScreen from './screens/PlanContent';
-import MyPlansScreen from './screens/MyPlans';
+import MyPlanScreen from './screens/MyPlan';
 import DishDetailsScreen from './screens/DishDetails';
 import NavigateMapScreen from './screens/Map'
 
@@ -28,7 +28,7 @@ function App() {
         <Stack.Screen name="Set Dietary Restrictions" component={SetDietRestrictionScreen} />
         <Stack.Screen name="Set Up Meal Plan" component={SetUpPlanScreen} />
         <Stack.Screen name="Plan Content" component={PlanContentScreen} />
-        <Stack.Screen name="My Plans" component={MyPlansScreen} />
+        <Stack.Screen name="My Plan" component={MyPlanScreen} />
         <Stack.Screen name="Dish Details" component={DishDetailsScreen} />
         <Stack.Screen name="Map" component={NavigateMapScreen} />
       </Stack.Navigator>

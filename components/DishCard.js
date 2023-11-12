@@ -24,13 +24,13 @@ function DishCard({title, image, description, content, navigation, addCalback = 
         <Button 
           title="Add to plan"
           onPress={() => {
-            addCalback(title)
+            addCalback(content)
           }}
         />
         <Button 
           title="Remove from plan"
           onPress={() => {
-            removeCallback(title)
+            removeCallback(content)
           }}
         />
     </View>
