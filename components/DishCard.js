@@ -8,11 +8,12 @@ import {
 function DishCard({title, image, description, content, navigation, addCalback = null, removeCallback = null}){
 
   return (
-    <View>
-        <Text>{title}</Text>
-        <Text>{description}</Text>
+    <View style={{backgroundColor: '#fafafa', borderRadius: 8, paddingVertical: 10, paddingHorizontal: 10, width: 400, marginBottom: 10}}>
+        <Text style={{color: '#74c476', fontWeight: 'bold', fontSize: 18}}>{title}</Text>
+        <Text style= {{color: '#74c476', fontSize: 15}}>{description}</Text>
         <Button
             title="Details"
+            color="#74c476"
             onPress={() => {
               navigation.navigate("Dish Details", {
                   title: title,
@@ -22,13 +23,15 @@ function DishCard({title, image, description, content, navigation, addCalback = 
             }}
         />
         <Button 
-          title="Add to plan"
+          title="Add to Plan"
+          color="#74c476"
           onPress={() => {
             addCalback(title)
           }}
         />
         <Button 
-          title="Remove from plan"
+          title="Remove from Plan"
+          color="#74c476"
           onPress={() => {
             removeCallback(title)
           }}
