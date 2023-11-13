@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 function MyPlanScreen({ route, navigation }) {
 
-  const [myplan, setPlan] = useState([]);
+  const [myplan, setPlan] = useState({});
 
   useEffect(() => {
     if (route.params?.plan) {

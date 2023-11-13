@@ -5,8 +5,8 @@ import { useState, useEffect } from "react";
 
 function SetUpPlanScreen({ route, navigation }){
 
-  const [plan, setPlan] = useState([]);
-  const [menu, setMenu] = useState([]);
+  const [plan, setPlan] = useState({});
+  const [menu, setMenu] = useState({});
 
   const getCurrentDate = () => {
 
@@ -19,19 +19,31 @@ function SetUpPlanScreen({ route, navigation }){
     return month + '-' + date + '-' + year; //format: d-m-y;
   }
 
-  const addDishToPlan = (dishTitle) => {
-    let copyPlan = [...plan];
-    copyPlan.push(dishTitle);
+  const addDishToPlan = (dishTitle, category) => {
+
+    let copyPlan = {};
+
+    for(let key of Object.keys(plan)){
+      copyPlan[key] = [...plan[key]];
+      copyPlan[key].push(dishTitle);
+    }
+
     setPlan(copyPlan);
   }
 
   const formatMenu = (menu) => {
 
-    let allDishes = [];
+    let allDishes = {}; // dict organized by category
 
     for(let i = 0; i < menu.length; i++){
+      if(menu[i].name != undefined && allDishes[menu[i].name] == undefined){
+        allDishes[menu[i].name] = [];
+      }
+
       for(let j = 0; j < menu[i].items.length; j++){
-        allDishes.push(menu[i].items[j]);   
+        if(menu[i].name != undefined){
+          allDishes[menu[i].name].push(menu[i].items[j]);   
+        }
       }
     }
 
@@ -47,21 +59,30 @@ function SetUpPlanScreen({ route, navigation }){
         title="Fetch menu"
         onPress={async () => {
           let local_menu = await fetchMenu("2023-11-8", "b");
-          setMenu(formatMenu(local_menu));
+          let formated_menu = formatMenu(local_menu);
+          setMenu(formated_menu);
         }}
       />
       <ScrollView>
-        {menu.map((dish, index) => {
+        {Object.keys(menu).map((categoryKey, index) => {
           return (
-            <DishCard
-              key={"dishCard"+index}
-              title={dish.name}
-              image={null} 
-              description={dish.desc}
-              content={dish}      
-              navigation={navigation}
-              addCalback={addDishToPlan}
-            />
+            <View key={"viewSetUpPlan"+index}>
+              <Text key={"textSetUpPlan"+index}>{categoryKey}</Text>
+              {menu[categoryKey].map((dish, indexDish) => {
+                return(
+                  <DishCard
+                    key={"dishCard"+index+indexDish}
+                    title={dish.name}
+                    image={null} 
+                    description={dish.desc}
+                    content={dish}      
+                    navigation={navigation}
+                    category={categoryKey}
+                    addCalback={addDishToPlan}
+                  />
+                )
+              })}
+            </View>
           );
         })}
       </ScrollView>

@@ -5,7 +5,7 @@ import {
   Button
 } from 'react-native';
 
-function DishCard({title, image, description, content, navigation, addCalback = null, removeCallback = null}){
+function DishCard({title, image, description, content, navigation, category, addCalback = null, removeCallback = null}){
 
   return (
     <View>
@@ -24,7 +24,7 @@ function DishCard({title, image, description, content, navigation, addCalback = 
         <Button 
           title="Add to plan"
           onPress={() => {
-            addCalback(content)
+            addCalback(content, category)
           }}
         />
         <Button 
