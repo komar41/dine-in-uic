@@ -26,7 +26,21 @@ function App() {
           // options={{ title: 'Overview' }}
         />
         <Stack.Screen name="Set Dietary Restrictions" component={SetDietRestrictionScreen} />
-        <Stack.Screen name="Set Up Meal Plan" component={SetUpPlanScreen} />
+        <Stack.Screen 
+          name="Set Up Meal Plan" 
+          component={SetUpPlanScreen} 
+          options={{
+            title: 'Set Up Meal Plan',
+            headerStyle: {
+              backgroundColor: '#32B768'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+              fontSize: "22px"
+            },
+          }}
+        />
         <Stack.Screen name="Plan Content" component={PlanContentScreen} />
         <Stack.Screen name="My Plan" component={MyPlanScreen} />
         <Stack.Screen name="Dish Details" component={DishDetailsScreen} />

@@ -16,6 +16,18 @@ function SetUpPlanScreen({ route, navigation }){
     }
   }, [route.params?.answers]);
 
+  useEffect(() => {
+
+    async function func(){
+      let local_menu = await fetchMenu(getCurrentDataForRequest(), "l");
+      let formated_menu = formatMenu(local_menu);
+      setMenu(formated_menu);
+    }
+
+    func();
+
+  }, []);
+
   const getCurrentDate = () => {
 
     const date_obj = new Date();
@@ -25,6 +37,16 @@ function SetUpPlanScreen({ route, navigation }){
     var year = date_obj.getFullYear();
 
     return month + '-' + date + '-' + year; //format: d-m-y;
+  }
+
+  const getCurrentDataForRequest = () => {
+    const date_obj = new Date();
+
+    var date = date_obj.getDate();
+    var month = date_obj.getMonth() + 1;
+    var year = date_obj.getFullYear();
+
+    return year + '-' + month + '-' + date; //format: d-m-y;
   }
 
   const addDishToPlan = (dish, category) => {
@@ -124,29 +146,12 @@ function SetUpPlanScreen({ route, navigation }){
   }
 
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', overflowY: "auto" }}>
-      <View style={{alignItems: 'center', backgroundColor: '#31b767', paddingVertical: 10, paddingHorizontal: 25, marginBottom: 10, width: 450}}>
-        <Text style={{color: "white", fontSize: 25, marginBottom: 10, fontWeight: "bold"}}>Set Up New Plan</Text>
-        <Text style={{color: "white", marginBottom: 5, fontSize: 17}}>These are the dishes available for today based on your dietary preferences</Text>
-        <Text style={{color: "white", fontSize: 17}}>{getCurrentDate()}</Text>
-      </View>
-      <View style= {{backgroundColor: '#31b767', borderRadius: 8, paddingVertical: 10, marginBottom: 10, width: 150}}>
-        <Button
-          title="Fetch Menu"
-          color="white"
-          onPress={async () => {
-            let local_menu = await fetchMenu("2023-11-8", "b");
-            let formated_menu = formatMenu(local_menu);
-            setMenu(formated_menu);
-          }}
-        />
-      </View>
-      
-      <ScrollView>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', width: "90%", marginLeft: "auto", marginRight: "auto"}}>
+      <ScrollView style = {{marginTop: 45}} horizontal={false}>
         {Object.keys(menu).map((categoryKey, index) => {
           return (
             <View key={"viewSetUpPlan"+index}>
-              <Text key={"textSetUpPlan"+index}>{categoryKey}</Text>
+              <Text key={"textSetUpPlan"+index} style={{fontWeight: "bold", fontSize: 33, marginBottom: 15, color: "#00483C"}}>{categoryKey}</Text>
               {menu[categoryKey].map((dish, indexDish) => {
                 return(
                   <DishCard
