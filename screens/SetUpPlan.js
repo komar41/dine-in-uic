@@ -1,6 +1,5 @@
 import {View, Text, Button, ScrollView} from 'react-native';
 import fetchMenu from '../services/web-scraper';
-import fetchImagesForMenu from '../services/image-generator';
 
 import DishCard from '../components/DishCard';
 import { useState, useEffect } from "react";
@@ -90,7 +89,6 @@ function SetUpPlanScreen({ route, navigation }){
           let local_menu = await fetchMenu("2023-11-8", "b");
           let formated_menu = formatMenu(local_menu);
           setMenu(formated_menu);
-          fetchImagesForMenu(formated_menu);
         }}
       />
       <ScrollView>
