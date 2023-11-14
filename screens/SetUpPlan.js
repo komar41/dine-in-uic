@@ -1,5 +1,7 @@
 import {View, Text, Button, ScrollView} from 'react-native';
 import fetchMenu from '../services/web-scraper';
+import fetchImagesForMenu from '../services/image-generator';
+
 import DishCard from '../components/DishCard';
 import { useState, useEffect } from "react";
 
@@ -19,21 +21,40 @@ function SetUpPlanScreen({ route, navigation }){
     return month + '-' + date + '-' + year; //format: d-m-y;
   }
 
-  const addDishToPlan = (dishTitle, category) => {
+  const addDishToPlan = (dish, category) => {
 
     let copyPlan = {};
     let added = false;
 
-    for(let key of Object.keys(plan)){
+    for(const key of Object.keys(plan)){
       copyPlan[key] = [...plan[key]];
       if(key == category){
-        copyPlan[key].push(dishTitle);
+        copyPlan[key].push(dish);
         added = true;
       }
     }
 
     if(!added){
-      copyPlan[category] = [dishTitle];
+      copyPlan[category] = [dish];
+    }
+
+    setPlan(copyPlan);
+  }
+
+  const removeDishFromPlan = (dishObj, category) => {
+
+    let copyPlan = {};
+
+    for(const key of Object.keys(plan)){
+      for(const dish of plan[key]){
+        if(key != category || dishObj.name != dish.name){
+          if(copyPlan[key] == undefined){
+            copyPlan[key] = [dish];
+          }else{
+            copyPlan[key].push(dish);
+          }
+        }
+      }
     }
 
     setPlan(copyPlan);
@@ -69,6 +90,7 @@ function SetUpPlanScreen({ route, navigation }){
           let local_menu = await fetchMenu("2023-11-8", "b");
           let formated_menu = formatMenu(local_menu);
           setMenu(formated_menu);
+          fetchImagesForMenu(formated_menu);
         }}
       />
       <ScrollView>
@@ -87,6 +109,7 @@ function SetUpPlanScreen({ route, navigation }){
                     navigation={navigation}
                     category={categoryKey}
                     addCalback={addDishToPlan}
+                    removeCallback={removeDishFromPlan}
                   />
                 )
               })}

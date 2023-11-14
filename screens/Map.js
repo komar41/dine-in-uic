@@ -140,8 +140,6 @@ function NavigateMapScreen({ route, navigation }) {
         currentNumberSequence += 1;
       }
       
-      console.log("new sequence", newSequence);
-
       setSequence(newSequence);
       setPlan(route.params?.plan);
     }

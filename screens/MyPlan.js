@@ -1,5 +1,6 @@
-import { View, Text, Button} from 'react-native';
+import { View, Text, Button, ScrollView} from 'react-native';
 import { useState, useEffect } from "react";
+import DishCard from '../components/DishCard';
 
 function MyPlanScreen({ route, navigation }) {
 
@@ -15,15 +16,37 @@ function MyPlanScreen({ route, navigation }) {
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text>My plan</Text>
         <Button
-        title="Generate Navigation Route"
-        onPress={async () => {
-          navigation.navigate({
-            name: 'Map',
-            params: { plan: myplan },
-            merge: true,
-          });
-        }}
-      />
+          title="Check Navigation Route"
+          onPress={async () => {
+            navigation.navigate({
+              name: 'Map',
+              params: { plan: myplan },
+              merge: true,
+            });
+          }}
+        />
+        <ScrollView>
+          {Object.keys(myplan).map((categoryKey, index) => {
+            return (
+              <View key={"viewSetUpPlan"+index}>
+                <Text key={"textSetUpPlan"+index}>{categoryKey}</Text>
+                {myplan[categoryKey].map((dish, indexDish) => {
+                  return(
+                    <DishCard
+                      key={"dishCard"+index+indexDish}
+                      title={dish.name}
+                      image={null} 
+                      description={dish.desc}
+                      content={dish}      
+                      navigation={navigation}
+                      category={categoryKey}
+                    />
+                  )
+                })}
+              </View>
+            );
+          })}
+        </ScrollView>
       </View>
     );
   }

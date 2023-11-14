@@ -21,18 +21,25 @@ function DishCard({title, image, description, content, navigation, category, add
               })
             }}
         />
-        <Button 
-          title="Add to plan"
-          onPress={() => {
-            addCalback(content, category)
-          }}
-        />
-        <Button 
-          title="Remove from plan"
-          onPress={() => {
-            removeCallback(content)
-          }}
-        />
+        {
+          addCalback != undefined ? <Button 
+            title="Add to plan"
+            onPress={() => {
+              addCalback(content, category)
+            }}
+          /> : null
+        }
+
+        {
+          removeCallback != undefined ? <Button 
+            title="Remove from plan"
+            onPress={() => {
+              removeCallback(content, category)
+            }}
+          /> : null
+        }
+
+
     </View>
   );
 }
