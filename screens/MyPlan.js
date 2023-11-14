@@ -8,7 +8,6 @@ function MyPlanScreen({ route, navigation }) {
 
   useEffect(() => {
     if (route.params?.plan) {
-      console.log(route.params?.plan["Grill"][0].filters);
       setPlan(route.params?.plan);
     }
   }, [route.params?.plan]);
