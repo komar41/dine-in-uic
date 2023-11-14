@@ -18,7 +18,7 @@ function DishDetailsScreen({route, navigation}) {
         <Text style={{color: '#31b767', fontSize: 17, marginBottom: 5, fontWeight: "bold"}}>Nutritional Info</Text>
         {content.nutrients.map((nutrient, index) => {
           return (
-            <Text key={"dishDetails"+nutrient+index}>{nutrient.name}: {nutrient.value} {nutrient.uom}</Text>
+            <Text key={"dishDetails"+nutrient+index} style={{color: '#31b767', fontSize: 17}}>{nutrient.name}: {nutrient.value} {nutrient.uom}</Text>
           );
         })}
         </View>
