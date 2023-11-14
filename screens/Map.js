@@ -69,7 +69,7 @@ const CustomButton = ({
 };
 
 function NavigateMapScreen({ route, navigation }) {
-  const categories = ["Asian Kitchen", "Grill", "Global Tour", "Sandwich", "Latin Kitchen", "Nook", "Breakfast Mezze", "Breakfast Buffet"];
+  const categories = ["Asian Kitchen", "Grill", "Global Tour", "Sandwich", "Latin Kitchen", "Fresh Market", "Mezze", "Nook"];
   // Bakery-Dessert
   const colors = ["#66c2a5", "#fc8d62", "#8da0cb", "#e78ac3", "#a6d854", "#ffd92f", "#e5c494", "#b3b3b3"]
   const positions = [
@@ -146,63 +146,66 @@ function NavigateMapScreen({ route, navigation }) {
   }, [route.params?.plan]);
 
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-    <Image
-      source={require('../assets/global.png')}
-      style={{ position: 'absolute', left: 60, top: 0 }}
-    />
-    <Image
-      source={require('../assets/sandwich.png')}
-      style={{ position: 'absolute', right: 60, top: 0 }}
-    />
-    <Image
-      source={require('../assets/grill.png')}
-      style={{ position: 'absolute', left: 0, top: 100 }}
-    />
-    <Image
-      source={require('../assets/asian.png')}
-      style={{ position: 'absolute', left: 0, top: 215 }}
-    />
-    <Image
-      source={require('../assets/latin.png')}
-      style={{ position: 'absolute', right: 0, top: 100 }}
-    />
-    <Image
-      source={require('../assets/salad.png')}
-      style={{ position: 'absolute', left: 140, top: 130}}
-    />
-    <Image
-      source={require('../assets/breakfast.png')}
-      style={{ position: 'absolute', right: 0, top: 350 }}
-    />
-    <Image
-      source={require('../assets/mezze.png')}
-      style={{ position: 'absolute', left: 0, top: 350 }}
-    />
-    <Image
-      source={require('../assets/entrance.png')}
-      style={{ position: 'absolute', left: 155, top: 350 }}
-    />
+    <View style={{ flex: 1 }}>
+      <Image
+        source={require('../assets/global.png')}
+        style={{ position: 'absolute', left: 60, top: 0 }}
+      />
+      <Image
+        source={require('../assets/sandwich.png')}
+        style={{ position: 'absolute', right: 60, top: 0 }}
+      />
+      <Image
+        source={require('../assets/grill.png')}
+        style={{ position: 'absolute', left: 0, top: 100 }}
+      />
+      <Image
+        source={require('../assets/asian.png')}
+        style={{ position: 'absolute', left: 0, top: 215 }}
+      />
+      <Image
+        source={require('../assets/latin.png')}
+        style={{ position: 'absolute', right: 0, top: 100 }}
+      />
+      <Image
+        source={require('../assets/salad.png')}
+        style={{ position: 'absolute', left: 140, top: 130}}
+      />
+      <Image
+        source={require('../assets/breakfast.png')}
+        style={{ position: 'absolute', right: 0, top: 350 }}
+      />
+      <Image
+        source={require('../assets/mezze.png')}
+        style={{ position: 'absolute', left: 0, top: 350 }}
+      />
+      <Image
+        source={require('../assets/entrance.png')}
+        style={{ position: 'absolute', left: 155, top: 350 }}
+      />
 
-    {sequence.map((item, index) => {
-      if(item != null){
-        return (
-          <CustomButton
-          key={index+"customButton"}
-          buttonText={sequence[index]}
-          menuItems={myplan}
-          category={categories[index]}
-          top={positions[index].top}
-          left={positions[index].left}
-          backgroundColor={colors[index]}
-        />
-        )
-      }else{
-        return null;
-      }
-    })}
+      {sequence.map((item, index) => {
+        if(item != null){
+          return (
+            <CustomButton
+            key={index+"customButton"}
+            buttonText={sequence[index]}
+            menuItems={myplan}
+            category={categories[index]}
+            top={positions[index].top}
+            left={positions[index].left}
+            backgroundColor={colors[index]}
+          />
+          )
+        }else{
+          return null;
+        }
+      })}
 
-    <Image
+      <Text style={{fontWeight: "bold", fontSize: 33, marginTop: 440, marginLeft: 20, color: "#00483C"}}>Your favorites</Text>
+
+
+    {/* <Image
       source={require('../assets/favorites_text.png')}
       style={{ position: 'absolute', left: 10, top: 480 }}
     />
@@ -210,9 +213,11 @@ function NavigateMapScreen({ route, navigation }) {
 <Image
       source={require('../assets/favorites.png')}
       style={{ position: 'absolute', left: 10, top: 510 }}
-    />
+    /> */}
 
     </View>
+
+
 
     
   );

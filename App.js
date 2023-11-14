@@ -23,14 +23,29 @@ function App() {
         <Stack.Screen
           name="Home"
           component={HomeScreen}
+          options={{ headerShown: false }}
           // options={{ title: 'Overview' }}
         />
-        <Stack.Screen name="Set Dietary Restrictions" component={SetDietRestrictionScreen} />
+        <Stack.Screen 
+          name="Set Dietary Restrictions" 
+          component={SetDietRestrictionScreen} 
+          options={{
+            title: 'Dietary Quiz',
+            headerStyle: {
+              backgroundColor: '#32B768'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+              fontSize: "22px"
+            },
+          }}
+        />
         <Stack.Screen 
           name="Set Up Meal Plan" 
           component={SetUpPlanScreen} 
           options={{
-            title: 'Set Up Meal Plan',
+            title: 'New Plan',
             headerStyle: {
               backgroundColor: '#32B768'
             },
@@ -42,9 +57,51 @@ function App() {
           }}
         />
         <Stack.Screen name="Plan Content" component={PlanContentScreen} />
-        <Stack.Screen name="My Plan" component={MyPlanScreen} />
-        <Stack.Screen name="Dish Details" component={DishDetailsScreen} />
-        <Stack.Screen name="Map" component={NavigateMapScreen} />
+        <Stack.Screen 
+          name="My Plan" 
+          component={MyPlanScreen} 
+          options={{
+            title: 'My Plan',
+            headerStyle: {
+              backgroundColor: '#32B768'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+              fontSize: "22px"
+            },
+          }}
+        />
+        <Stack.Screen 
+          name="Dish Details" 
+          component={DishDetailsScreen} 
+          options={{
+            title: 'Dish Details',
+            headerStyle: {
+              backgroundColor: '#32B768'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+              fontSize: "22px"
+            },
+          }}
+        />
+        <Stack.Screen 
+          name="Map" 
+          component={NavigateMapScreen} 
+          options={{
+            title: 'Map',
+            headerStyle: {
+              backgroundColor: '#32B768'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+              fontSize: "22px"
+            },
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

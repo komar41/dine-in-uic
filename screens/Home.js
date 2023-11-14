@@ -21,7 +21,7 @@ function HomeScreen({ route, navigation }) {
   }, [route.params?.answers]);
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center',  alignItems: 'center'}}>
+    <View style={{ flex: 1, justifyContent: 'center',  alignItems: 'center', marginTop: 90}}>
       {/* <ImageBackground source={image} resizeMode="cover" style={{flex: 1, justifyContent: 'center',  alignItems: 'center'}}> */}
         
       <Image

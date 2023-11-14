@@ -7,7 +7,7 @@ import {
   ScrollView,
   TouchableOpacity
 } from 'react-native';
-import { images } from '../services/all_images'
+import { images } from '../services/all_images';
 import { useState, useEffect } from "react";
 
 function DishCard({title, image, description, content, navigation, category, addCalback = null, removeCallback = null}){
@@ -111,30 +111,28 @@ function DishCard({title, image, description, content, navigation, category, add
                 navigation.navigate("Dish Details", {
                     title: title,
                     description: description,
-                    content: content
+                    content: content,
+                    labelImages: generateLabels()
                 })
               }}>
             <Text style={{textAlign:'left', color:'#31b767', fontSize: 16}}>Details</Text>
           </TouchableOpacity>
         </View>
-        <View style={{alignItems: 'left'}}>
-
+        <View>
           {
             addCalback != undefined && removeCallback != undefined ? 
-              !added ? <Button 
-                title="+"
-                color='#31b767'
-                onPress={() => {
-                  setAdded(true);
-                  addCalback(content, category);
-                }} /> : <Button 
-                title="-"
-                color='#31b767'
-                onPress={() => {
-                  setAdded(false);
-                  removeCallback(content, category)
-                }} />
-            : null
+              !added ? <TouchableOpacity onPress={() => {
+                            setAdded(true);
+                            addCalback(content, category);
+                          }}>
+                        <Text style={{color:'#31b767', fontSize: 30, fontWeight: "bold"}}>+</Text>
+                      </TouchableOpacity> : <TouchableOpacity onPress={() => {
+                            setAdded(false);
+                            removeCallback(content, category)
+                          }}>
+                        <Text style={{color:'#31b767', fontSize: 30, fontWeight: "bold"}}>-</Text>
+                      </TouchableOpacity>
+                      : null
           }
         </View>
     </View>
