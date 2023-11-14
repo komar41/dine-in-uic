@@ -125,17 +125,23 @@ function SetUpPlanScreen({ route, navigation }){
 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', overflowY: "auto" }}>
-      <Text>Set up Plan</Text>
-      <Text>These are the dishes available for today based on your dietary preferences</Text>
-      <Text>{getCurrentDate()}</Text>
-      <Button
-        title="Fetch menu"
-        onPress={async () => {
-          let local_menu = await fetchMenu("2023-11-8", "b");
-          let formated_menu = formatMenu(local_menu);
-          setMenu(formated_menu);
-        }}
-      />
+      <View style={{alignItems: 'center', backgroundColor: '#31b767', paddingVertical: 10, paddingHorizontal: 25, marginBottom: 10, width: 450}}>
+        <Text style={{color: "white", fontSize: 25, marginBottom: 10, fontWeight: "bold"}}>Set Up New Plan</Text>
+        <Text style={{color: "white", marginBottom: 5, fontSize: 17}}>These are the dishes available for today based on your dietary preferences</Text>
+        <Text style={{color: "white", fontSize: 17}}>{getCurrentDate()}</Text>
+      </View>
+      <View style= {{backgroundColor: '#31b767', borderRadius: 8, paddingVertical: 10, marginBottom: 10, width: 150}}>
+        <Button
+          title="Fetch Menu"
+          color="white"
+          onPress={async () => {
+            let local_menu = await fetchMenu("2023-11-8", "b");
+            let formated_menu = formatMenu(local_menu);
+            setMenu(formated_menu);
+          }}
+        />
+      </View>
+      
       <ScrollView>
         {Object.keys(menu).map((categoryKey, index) => {
           return (
@@ -160,18 +166,20 @@ function SetUpPlanScreen({ route, navigation }){
           );
         })}
       </ScrollView>
-      <Button
-        title="Save"
-        onPress={() => {
-          // Pass and merge params back to home screen
-          navigation.navigate({
-            name: 'Home',
-            params: { plan: plan },
-            merge: true,
-          });
-        }}
-      />
-
+      <View style= {{backgroundColor: '#31b767', borderRadius: 8, paddingVertical: 10, marginBottom: 10, marginTop: 10, width: 150}}>
+        <Button
+          title="Save"
+          color="white"
+          onPress={() => {
+            // Pass and merge params back to home screen
+            navigation.navigate({
+              name: 'Home',
+              params: { plan: plan },
+              merge: true,
+            });
+          }}
+        />
+      </View>
     </View>
   );
 }
