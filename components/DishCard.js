@@ -74,7 +74,8 @@ function DishCard({title, image, description, content, navigation, category, add
   }
 
   return (
-    <View>
+
+    <View style={{backgroundColor: '#fafafa', borderRadius: 8, paddingVertical: 10, paddingHorizontal: 10, width: 400, marginBottom: 10}}>
         <Image
           source={images[content.id] != undefined ? images[content.id] : require('../assets/splash.png')}
           onError={() => setImageError(true)}
@@ -89,37 +90,40 @@ function DishCard({title, image, description, content, navigation, category, add
             />
           ))}
         </View>
-        <Text>{title}</Text>
-        <Text>{description}</Text>
-        <Button
-            title="Details"
-            onPress={() => {
-              navigation.navigate("Dish Details", {
-                  title: title,
-                  description: description,
-                  content: content
-              })
-            }}
-        />
-        {
-          addCalback != undefined ? <Button 
-            title="Add to plan"
-            onPress={() => {
-              addCalback(content, category)
-            }}
-          /> : null
-        }
+        <Text style={{color: '#31b767', fontWeight: 'bold', fontSize: 20}}>{title}</Text>
+        <Text style= {{color: '#31b767', fontSize: 17}}>{description}</Text>
+        <View style={{alignItems: 'left'}}>
+          <Button
+              title="Details"
+              color='#31b767'
+              onPress={() => {
+                navigation.navigate("Dish Details", {
+                    title: title,
+                    description: description,
+                    content: content
+                })
+              }}
+          />
+          {
+            addCalback != undefined ? <Button 
+              title="Add to plan"
+              color='#31b767'
+              onPress={() => {
+                addCalback(content, category)
+              }}
+            /> : null
+          }
 
         {
           removeCallback != undefined ? <Button 
             title="Remove from plan"
+            color='#31b767'
             onPress={() => {
               removeCallback(content, category)
             }}
           /> : null
         }
-
-
+        </View>
     </View>
   );
 }
