@@ -42,8 +42,8 @@ function SetUpPlanScreen({ route, navigation }){
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', overflowY: "auto" }}>
       <View style={{alignItems: 'center', backgroundColor: '#31b767', paddingVertical: 10, paddingHorizontal: 25, marginBottom: 10, width: 450}}>
         <Text style={{color: "white", fontSize: 25, marginBottom: 10, fontWeight: "bold"}}>Set Up New Plan</Text>
-        <Text style={{color: "white", marginBottom: 5, fontSize: 15}}>These are the dishes available for today based on your dietary preferences</Text>
-        <Text style={{color: "white", fontSize: 15}}>{getCurrentDate()}</Text>
+        <Text style={{color: "white", marginBottom: 5, fontSize: 17}}>These are the dishes available for today based on your dietary preferences</Text>
+        <Text style={{color: "white", fontSize: 17}}>{getCurrentDate()}</Text>
       </View>
       <View style= {{backgroundColor: '#31b767', borderRadius: 8, paddingVertical: 10, marginBottom: 10, width: 150}}>
         <Button

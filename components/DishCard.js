@@ -9,8 +9,8 @@ function DishCard({title, image, description, content, navigation, addCalback = 
 
   return (
     <View style={{backgroundColor: '#fafafa', borderRadius: 8, paddingVertical: 10, paddingHorizontal: 10, width: 400, marginBottom: 10}}>
-        <Text style={{color: '#31b767', fontWeight: 'bold', fontSize: 18}}>{title}</Text>
-        <Text style= {{color: '#31b767', fontSize: 15}}>{description}</Text>
+        <Text style={{color: '#31b767', fontWeight: 'bold', fontSize: 20}}>{title}</Text>
+        <Text style= {{color: '#31b767', fontSize: 17}}>{description}</Text>
         <View style={{alignItems: 'left'}}>
           <Button
               title="Details"
