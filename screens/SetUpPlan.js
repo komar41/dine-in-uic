@@ -22,10 +22,18 @@ function SetUpPlanScreen({ route, navigation }){
   const addDishToPlan = (dishTitle, category) => {
 
     let copyPlan = {};
+    let added = false;
 
     for(let key of Object.keys(plan)){
       copyPlan[key] = [...plan[key]];
-      copyPlan[key].push(dishTitle);
+      if(key == category){
+        copyPlan[key].push(dishTitle);
+        added = true;
+      }
+    }
+
+    if(!added){
+      copyPlan[category] = [dishTitle];
     }
 
     setPlan(copyPlan);

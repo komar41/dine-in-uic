@@ -7,6 +7,7 @@ const CustomButton = ({
   top,
   left,
   backgroundColor,
+  category
 }) => {
   const [isTextVisible, setIsTextVisible] = useState(false);
 
@@ -55,11 +56,11 @@ const CustomButton = ({
           }}
         >
           <Text style={{ color: 'white' }}>
-            {menuItems.map((item, index) => (
+            {menuItems[category] != undefined ? menuItems[category].map((item, index) => (
               <Text key={index}>
-                {`• ${item}${index !== menuItems.length - 1 ? '\n' : ''}`}
+                {`• ${item.name}${index !== menuItems.length - 1 ? '\n' : ''}`}
               </Text>
-            ))}
+            )) : null}
           </Text>
         </TouchableOpacity>
       )}
@@ -67,20 +68,82 @@ const CustomButton = ({
   );
 };
 
-
 function NavigateMapScreen({ route, navigation }) {
-  const buttons = [1, 2, 3, 4, 5, 6, 7, 8];
+  const categories = ["Asian Kitchen", "Grill", "Global Tour", "Sandwich", "Latin Kitchen", "Nook", "Breakfast Mezze", "Breakfast Buffet"];
+  // Bakery-Dessert
+  const colors = ["#66c2a5", "#fc8d62", "#8da0cb", "#e78ac3", "#a6d854", "#ffd92f", "#e5c494", "#b3b3b3"]
+  const positions = [
+    {top: 235, left: 80},
+    {top: 135, left: 80},
+    {top: 65, left: 130},
+    {top: 65, left: 220},
+    {top: 200, left: 260},
+    {top: 280, left: 175},
+    {top: 370, left: 95},
+    {top: 370, left: 255}
+  ]
+
   const { width, height } = Dimensions.get('window');
 
-  const [myplan, setPlan] = useState([]);
+  const [myplan, setPlan] = useState({});
+  const [sequence, setSequence] = useState(["1","2","3","4","5","6","7","8"]);
 
   const [isTextVisible, setIsTextVisible] = useState(false);
-  const menuItems = ['Chicken Katsu', 'Hard Fried Eggs', 'Chicken Katsu', 'Hard Fried Eggs', 'Chicken Katsu', 'Hard Fried Eggs'];
 
   useEffect(() => {
     if (route.params?.plan) {
+
+      let stationsToVisit = Object.keys(route.params?.plan);
+
+      let lastVisited = stationsToVisit[0];
+      let lastVisitedIndex = 0;
+
+      stationsToVisit.splice(0, 1); // remove first item
+
+      let newSequence = [null, null, null, null, null, null, null, null]
+
+      for(let i = 0; i < categories.length; i++){
+        if(categories[i] == lastVisited){
+          newSequence[i] = "1";
+          lastVisitedIndex = i;
+        }
+      }      
+
+      let currentNumberSequence = 2;
+
+      while(stationsToVisit.length > 0){
+
+        let minDistance = -1;
+        let minDistanceIndex = -1;
+        let minDistanceToVisitIndex = -1;
+        let minDistanceName = "";
+
+        for(let i = 0; i < categories.length; i++){
+          for(let j = 0; j < stationsToVisit.length; j++){
+            if(categories[i] == stationsToVisit[j]){
+              let euclideanDistance = Math.sqrt(Math.pow((positions[i].top - positions[lastVisitedIndex].top), 2) + Math.pow((positions[i].left - positions[lastVisitedIndex].left), 2))
+              if(minDistance == -1 || euclideanDistance < minDistance){
+                minDistance = euclideanDistance;
+                minDistanceIndex = i;
+                minDistanceToVisitIndex = j;
+                minDistanceName = categories[i];
+              }
+            }
+          } 
+        }
+        
+        stationsToVisit.splice(minDistanceToVisitIndex, 1);
+        lastVisited = minDistanceName;
+        lastVisitedIndex = minDistanceIndex;
+        newSequence[minDistanceIndex] = currentNumberSequence+"";
+
+        currentNumberSequence += 1;
+      }
+      
+      console.log("new sequence", newSequence);
+
+      setSequence(newSequence);
       setPlan(route.params?.plan);
-      // generate best route
     }
   }, [route.params?.plan]);
 
@@ -123,69 +186,23 @@ function NavigateMapScreen({ route, navigation }) {
       style={{ position: 'absolute', left: 155, top: 350 }}
     />
 
-    <CustomButton
-        buttonText="1"
-        menuItems={menuItems}
-        top={235}
-        left={80}
-        backgroundColor="#66c2a5"
-    />
-
-    <CustomButton
-        buttonText="2"
-        menuItems={menuItems}
-        top={135}
-        left={80}
-        backgroundColor="#fc8d62"
-    />
-
-    <CustomButton
-        buttonText="3"
-        menuItems={menuItems}
-        top={65}
-        left={130}
-        backgroundColor="#8da0cb"
-    />
-
-    <CustomButton
-        buttonText="4"
-        menuItems={menuItems}
-        top={65}
-        left={220}
-        backgroundColor="#e78ac3"
-    />
-
-    <CustomButton
-        buttonText="5"
-        menuItems={menuItems}
-        top={200}
-        left={260}
-        backgroundColor="#a6d854"
-    />
-
-    <CustomButton
-        buttonText="6"
-        menuItems={menuItems}
-        top={280}
-        left={175}
-        backgroundColor="#ffd92f"
-    />
-
-    <CustomButton
-        buttonText="7"
-        menuItems={menuItems}
-        top={370}
-        left={95}
-        backgroundColor="#e5c494"
-    />
-
-    <CustomButton
-        buttonText="8"
-        menuItems={menuItems}
-        top={370}
-        left={255}
-        backgroundColor="#b3b3b3"
-    />
+    {sequence.map((item, index) => {
+      if(item != null){
+        return (
+          <CustomButton
+          key={index+"customButton"}
+          buttonText={sequence[index]}
+          menuItems={myplan}
+          category={categories[index]}
+          top={positions[index].top}
+          left={positions[index].left}
+          backgroundColor={colors[index]}
+        />
+        )
+      }else{
+        return null;
+      }
+    })}
 
     <Image
       source={require('../assets/favorites_text.png')}

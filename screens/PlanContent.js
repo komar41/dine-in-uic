@@ -4,8 +4,6 @@ function PlanContentScreen({route, navigation}) {
 
     const { title, description, items } = route.params;
 
-    console.log("items", items);
-
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text>{title}</Text>

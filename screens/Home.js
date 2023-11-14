@@ -42,7 +42,7 @@ function HomeScreen({ route, navigation }) {
           <Button
             title="Map"
             color="white"
-            onPress={() => navigation.navigate('Map')}
+            onPress={() => navigation.navigate({name: 'Map', params: {plan: myplan}, merge: true})}
           />
         </View>
 
