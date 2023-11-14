@@ -3,11 +3,16 @@ import {
   Text,
   View,
   Button,
-  Image
+  Image,
+  ScrollView,
+  TouchableOpacity
 } from 'react-native';
 import { images } from '../services/all_images'
+import { useState, useEffect } from "react";
 
 function DishCard({title, image, description, content, navigation, category, addCalback = null, removeCallback = null}){
+
+  const [added, setAdded] = useState(false);
 
   let labels = {
     "Vegan": require("../assets/icon_vegan.png"),
@@ -60,13 +65,21 @@ function DishCard({title, image, description, content, navigation, category, add
 
     if(checkFilters(content.filters, "Vegan")){
       labels.push("Vegan");
-    }else if(checkFilters(content.filters, "Vegetarian")){
+    }
+    
+    if(checkFilters(content.filters, "Vegetarian")){
       labels.push("Vegetarian");
-    }else if(checkFilters(content.filters, "Gluten-Free")){
+    }
+    
+    if(checkFilters(content.filters, "Gluten-Free")){
       labels.push("Gluten-Free");
-    }else if(checkFilters(content.filters, "Diary-Free")){
+    }
+    
+    if(checkFilters(content.filters, "Diary-Free")){
       labels.push("Diary-Free");
-    }else if(checkFilters(content.filters, "Nut-Free")){
+    }
+    
+    if(checkFilters(content.filters, "Nut-Free")){
       labels.push("Nut-Free");
     }
 
@@ -75,54 +88,54 @@ function DishCard({title, image, description, content, navigation, category, add
 
   return (
 
-    <View style={{backgroundColor: '#fafafa', borderRadius: 8, paddingVertical: 10, paddingHorizontal: 10, width: 400, marginBottom: 10}}>
-        <Image
-          source={images[content.id] != undefined ? images[content.id] : require('../assets/splash.png')}
-          onError={() => setImageError(true)}
-          style={{height: 100, width: 100}}
-        />
-        <View style={{flexDirection: 'row'}}>
-          {generateLabels().map((label, index) => (
-            <Image 
-              key={"label"+index}
-              source={labels[label]}
-              style={{height: 30, width: 30}}
-            />
-          ))}
+    <View style={{backgroundColor: '#fafafa', borderRadius: 8, paddingVertical: 10, paddingHorizontal: 10, marginBottom: 10, flexDirection: "row"}}>
+        <View style={{flexDirection: "column"}}>
+          <Image
+            source={images[content.id] != undefined ? images[content.id] : require('../assets/splash.png')}
+            style={{height: 100, width: 100}}
+          />
+          <ScrollView style={{maxWidth: 90}} horizontal={true}>
+            {generateLabels().map((label, index) => (
+              <Image 
+                key={"label"+index}
+                source={labels[label]}
+                style={{height: 30, width: 30, marginRight: 5}}
+              />
+            ))}
+          </ScrollView>
         </View>
-        <Text style={{color: '#31b767', fontWeight: 'bold', fontSize: 20}}>{title}</Text>
-        <Text style= {{color: '#31b767', fontSize: 17}}>{description}</Text>
-        <View style={{alignItems: 'left'}}>
-          <Button
-              title="Details"
-              color='#31b767'
-              onPress={() => {
+        <View style={{flexDirection: "column", width: 180, marginTop: 5}}>
+          <Text style={{fontWeight: 'bold', fontSize: 20, marginBottom: 10}}>{title}</Text>
+          {description != "" && description != undefined ? <Text style= {{fontSize: 17, opacity: 0.5, marginBottom: 10}}>{description}</Text> : null}
+          <TouchableOpacity onPress={() => {
                 navigation.navigate("Dish Details", {
                     title: title,
                     description: description,
                     content: content
                 })
-              }}
-          />
-          {
-            addCalback != undefined ? <Button 
-              title="Add to plan"
-              color='#31b767'
-              onPress={() => {
-                addCalback(content, category)
-              }}
-            /> : null
-          }
+              }}>
+            <Text style={{textAlign:'left', color:'#31b767', fontSize: 16}}>Details</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={{alignItems: 'left'}}>
 
-        {
-          removeCallback != undefined ? <Button 
-            title="Remove from plan"
-            color='#31b767'
-            onPress={() => {
-              removeCallback(content, category)
-            }}
-          /> : null
-        }
+          {
+            addCalback != undefined && removeCallback != undefined ? 
+              !added ? <Button 
+                title="+"
+                color='#31b767'
+                onPress={() => {
+                  setAdded(true);
+                  addCalback(content, category);
+                }} /> : <Button 
+                title="-"
+                color='#31b767'
+                onPress={() => {
+                  setAdded(false);
+                  removeCallback(content, category)
+                }} />
+            : null
+          }
         </View>
     </View>
   );
