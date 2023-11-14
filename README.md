@@ -20,7 +20,7 @@
 5. Scan the QR code on your phone to test the app.
 
 ### Home screen
-- The **Home** screen of the application. The user can navigate to all the other screens from here. 
+- The app launches with the **Home** screen of the application. The user can navigate to all the other screens from here. 
 - The first step would be to navigate to **Set Dietary Restrictions** screen.
   
 <img src="assets/1_home.png" alt="home screen" style="display: block; margin-left: auto; margin-right: auto; width: 40%;"/>
@@ -53,4 +53,4 @@
 - The map screen will show the user the best route to get food for their choosen meal plan for that day.
 - The map replicates the UIC dining hall, featuring numbered tooltips that guide users to the respective counters based on the most efficient route.
 - Clicking on tooltips reveals the food items to collect from each counter.
-<img src="assets/5_dish_details.png" alt="map screen" style="display: block; margin-left: auto; margin-right: auto; width: 40%;"/>
+<img src="assets/6_map.png" alt="map screen" style="display: block; margin-left: auto; margin-right: auto; width: 40%;"/>
