@@ -40,12 +40,12 @@ function SetUpPlanScreen({ route, navigation }){
 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', overflowY: "auto" }}>
-      <View style={{alignItems: 'center', backgroundColor: '#74c476', paddingVertical: 10, paddingHorizontal: 25, marginBottom: 10, width: 450}}>
+      <View style={{alignItems: 'center', backgroundColor: '#31b767', paddingVertical: 10, paddingHorizontal: 25, marginBottom: 10, width: 450}}>
         <Text style={{color: "white", fontSize: 25, marginBottom: 10, fontWeight: "bold"}}>Set Up New Plan</Text>
         <Text style={{color: "white", marginBottom: 5, fontSize: 15}}>These are the dishes available for today based on your dietary preferences</Text>
         <Text style={{color: "white", fontSize: 15}}>{getCurrentDate()}</Text>
       </View>
-      <View style= {{backgroundColor: '#74c476', borderRadius: 8, paddingVertical: 10, marginBottom: 10, width: 150}}>
+      <View style= {{backgroundColor: '#31b767', borderRadius: 8, paddingVertical: 10, marginBottom: 10, width: 150}}>
         <Button
           title="Fetch Menu"
           color="white"
@@ -70,7 +70,7 @@ function SetUpPlanScreen({ route, navigation }){
           );
         })}
       </ScrollView>
-      <View style= {{backgroundColor: '#74c476', borderRadius: 8, paddingVertical: 10, marginBottom: 10, marginTop: 10, width: 150}}>
+      <View style= {{backgroundColor: '#31b767', borderRadius: 8, paddingVertical: 10, marginBottom: 10, marginTop: 10, width: 150}}>
         <Button
           title="Save"
           color="white"
