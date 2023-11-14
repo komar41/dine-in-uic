@@ -8,6 +8,13 @@ function SetUpPlanScreen({ route, navigation }){
 
   const [plan, setPlan] = useState({});
   const [menu, setMenu] = useState({});
+  const [answers, setAnswers] = useState([]);
+
+  useEffect(() => {
+    if (route.params?.answers) {
+      setAnswers(route.params?.answers);
+    }
+  }, [route.params?.answers]);
 
   const getCurrentDate = () => {
 
@@ -61,6 +68,44 @@ function SetUpPlanScreen({ route, navigation }){
 
   const formatMenu = (menu) => {
 
+    // return true if it is safe
+    const checkFilters = (filters, restriction) => {
+
+      if(filters == undefined){
+        return false;
+      }
+
+      for(const filter of filters){
+        if(restriction == "Vegan" && filter.name == "Vegan"){
+          return true;
+        }else if(restriction == "Vegetarian" && filter.name == "Vegetarian"){
+          return true;
+        }else if(restriction == "Gluten-Free" && filter.name == "Gluten"){
+          return false;
+        }else if(restriction == "Diary-Free" && filter.name == "Milk"){
+          return false;
+        }else if(restriction == "Nut-Free" && filter.name == "Tree Nuts"){
+          return false;
+        }
+      }
+
+      if(restriction == "Vegan"){  // it does not have the Vegan label
+        return false;
+      }else if(restriction == "Vegetarian"){ // it does not have the Vegetarian label
+        return false;
+      }else if(restriction == "Gluten-Free"){ // it does not contain Glutten allergen
+        return true;
+      }else if(restriction == "Diary-Free"){
+        return true;
+      }else if(restriction == "Nut-Free"){
+        return true;
+      }
+
+      return true;
+
+    }
+
+
     let allDishes = {}; // dict organized by category
 
     for(let i = 0; i < menu.length; i++){
@@ -69,7 +114,7 @@ function SetUpPlanScreen({ route, navigation }){
       }
 
       for(let j = 0; j < menu[i].items.length; j++){
-        if(menu[i].name != undefined){
+        if(menu[i].name != undefined && checkFilters(menu[i].items[j].filters, answers[0])){
           allDishes[menu[i].name].push(menu[i].items[j]);   
         }
       }

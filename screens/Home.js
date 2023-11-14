@@ -6,12 +6,19 @@ const image = {uri: 'https://i.pinimg.com/564x/d8/b3/57/d8b357996895f53612208227
 function HomeScreen({ route, navigation }) {
 
   const [myplan, setPlan] = useState({});
+  const [answers, setAnswers] = useState({});
 
   useEffect(() => {
     if (route.params?.plan) {
       setPlan(route.params?.plan);
     }
   }, [route.params?.plan]);
+
+  useEffect(() => {
+    if (route.params?.answers) {
+      setAnswers(route.params?.answers);
+    }
+  }, [route.params?.answers]);
 
   return (
     <View style={{ flex: 1, justifyContent: 'center',  alignItems: 'center'}}>
@@ -34,7 +41,7 @@ function HomeScreen({ route, navigation }) {
           <Button
             title="Set Up New Plan"
             color="white"
-            onPress={() => navigation.navigate('Set Up Meal Plan')}
+            onPress={() => navigation.navigate({name: 'Set Up Meal Plan', params: {answers: answers}, merge: true})}
           />
         </View>
 
