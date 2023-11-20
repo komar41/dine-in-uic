@@ -1,5 +1,6 @@
-import { View, Text, Image, Dimensions, TouchableOpacity} from 'react-native';
+import { View, Text, Image, Dimensions, TouchableOpacity, ScrollView} from 'react-native';
 import React, { useState, useEffect } from "react";
+import DishCard from '../components/DishCard';
 
 const CustomButton = ({
   buttonText,
@@ -202,8 +203,37 @@ function NavigateMapScreen({ route, navigation }) {
         }
       })}
 
-      <Text style={{fontWeight: "bold", fontSize: 33, marginTop: 440, marginLeft: 20, color: "#00483C"}}>Your favorites</Text>
+      <Text style={{fontWeight: "bold", fontSize: 33, marginTop: 440, marginBottom: 20, marginLeft: 20, color: "#00483C"}}>Your favorites</Text>
+      <ScrollView>
+        {Object.keys(myplan).map((categoryKey, index) => {
+            return (
+              <View key={"mapDish"+index}>
+                {myplan[categoryKey].map((dish, indexDish) => {
+                  return(
+                    <DishCard
+                      key={"dishCardMap"+index+indexDish}
+                      title={dish.name}
+                      image={null} 
+                      description={dish.desc}
+                      content={dish}      
+                      navigation={navigation}
+                      category={categoryKey}
+                    />
+                  )
+                })}
+              </View>
+            );
+          })}
+      </ScrollView>
 
+      {/* <DishCard
+        title={dish.name}
+        image={null} 
+        description={dish.desc}
+        content={dish}      
+        navigation={navigation}
+        category={categoryKey}
+      /> */}
 
     {/* <Image
       source={require('../assets/favorites_text.png')}

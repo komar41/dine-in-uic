@@ -5,6 +5,8 @@ function DishDetailsScreen({route, navigation}) {
 
     const { title, description, content, labelImages } = route.params;
 
+    console.log(content.name);
+
     let labels = {
       "Vegan": require("../assets/icon_vegan.png"),
       "Vegetarian": require("../assets/icon_vegetarian.png"),
@@ -19,7 +21,7 @@ function DishDetailsScreen({route, navigation}) {
           <View style={{alignItems: 'center', justifyContent: 'center'}}>
             <Text style= {{fontSize: 25, color: '#00483C', fontWeight: 'bold', marginBottom: 15, marginTop: 10}}>{title}</Text>
             <Image
-              source={images[content.id] != undefined ? images[content.id] : require('../assets/splash.png')}
+              source={images[content.name] != undefined ? images[content.name] : require('../assets/splash.png')}
               style={{height: 100, width: 100}}
             />
             <ScrollView horizontal={true}>
@@ -34,6 +36,7 @@ function DishDetailsScreen({route, navigation}) {
             <Text style={{color: 'black', fontSize: 17}}><Text style={{fontWeight: "bold", color: '#00483C'}}>Portion:</Text> {content.portion}</Text>
             <Text style={{color: 'black', fontSize: 17, marginBottom: 15}}><Text style={{fontWeight: "bold", color: '#00483C'}}>Calories:</Text> {content.calories}</Text>
           </View>
+          <Text style={{color: 'black', fontSize: 17, opacity: 0.5, marginBottom: 15}}>{content.id}</Text>
           <Text style={{color: '#00483C', fontSize: 20, marginBottom: 20, fontWeight: "bold"}}>Description</Text>
           <Text style={{color: 'black', opacity: 0.5, fontSize: 17, marginBottom: 15}}>{description}</Text>
           <Text style={{color: '#00483C', fontSize: 20, marginBottom: 20, fontWeight: "bold"}}>Ingredients</Text>
