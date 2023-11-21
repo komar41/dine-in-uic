@@ -19,7 +19,7 @@ function SetUpPlanScreen({ route, navigation }){
   useEffect(() => {
 
     async function func(){
-      let local_menu = await fetchMenu(getCurrentDataForRequest(), "l");
+      let local_menu = await fetchMenu(getCurrentDataForRequest(), "d");
       // let local_menu = await fetchMenu("2023-11-14", "l");
       let formated_menu = formatMenu(local_menu);
 
