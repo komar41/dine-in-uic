@@ -91,8 +91,8 @@ function DishCard({title, image, description, content, navigation, category, add
     <View style={{backgroundColor: '#fafafa', borderRadius: 8, paddingVertical: 10, paddingHorizontal: 10, marginBottom: 10, flexDirection: "row"}}>
         <View style={{flexDirection: "column"}}>
           <Image
-            source={images[content.id] != undefined ? images[content.id] : require('../assets/splash.png')}
-            style={{height: 100, width: 100}}
+            source={images[content.name.replaceAll(" ","").replaceAll(":","").replaceAll(",","").replaceAll("'","").replaceAll(".", "")] != undefined ? images[content.name.replaceAll(" ","").replaceAll(":","").replaceAll(",","").replaceAll("'","").replaceAll(".", "")] : require('../assets/splash.png')}
+            style={{height: 100, width: 100, marginRight: 10}}
           />
           <ScrollView style={{maxWidth: 90}} horizontal={true}>
             {generateLabels().map((label, index) => (
