@@ -1,10 +1,12 @@
 # Dine-In UIC: Navigate Large Food Halls with Ease
 
+<div style="text-align: justify">
 This project was originated from an identified issue faced by university students with dietary restrictions, particularly those frequenting UIC's United Table in Student Center East. Through a series of six interviews emphasizing the "what, how, and why," we sought to understand the challenges these students encounter while searching for safe food options.
 
 The subsequent phases involved the development of low-fidelity prototypes, guided by the identified user needs, and the translation of these prototypes into a finalized mobile application during the delivery phase. The technical architecture of our application relies on React Native with Expo CLI, React Components, and local JSON data for dynamic menu retrieval, employing a generative AI tool for dish images, all while avoiding a separate database by locally storing persistent data.
 
 The app evaluation involves a comparative study between our developed mobile application and an existing solution, "Dine on Campus," to address user needs gathered from interviews. Participants, exposed to both apps, performed tasks within the dining hall—identifying foods meeting their dietary restrictions and locating these items within the space.
+</div>
 
 ### Application Setup
 1. On your terminal run the following commands:
