@@ -1,4 +1,4 @@
-# uic-dining-hall-navigation
+# Dine in UIC: Helping Better Navigate Large Dining Spaces
 
 ## Initial Setup
 1. On your terminal run the following commands:
