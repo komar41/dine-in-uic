@@ -1,4 +1,4 @@
-# Dine in UIC: Helping Better Navigate Large Dining Spaces
+# UIC Dine-In: Navigate Large Food Halls with Ease
 
 ## Initial Setup
 1. On your terminal run the following commands:
