@@ -5,8 +5,6 @@ This project was originated from an identified issue faced by university student
 
 The subsequent phases involved the development of low-fidelity prototypes, guided by the identified user needs, and the translation of these prototypes into a finalized mobile application during the delivery phase. The technical architecture of our application relies on React Native with Expo CLI, React Components, and local JSON data for dynamic menu retrieval, employing a generative AI tool for dish images, all while avoiding a separate database by locally storing persistent data.
 
-The app evaluation involves a comparative study between our developed mobile application and an existing solution, "Dine on Campus," to address user needs gathered from interviews. Participants, exposed to both apps, performed tasks within the dining hall—identifying foods meeting their dietary restrictions and locating these items within the space.
-
 ### Application Setup
 1. On your terminal run the following commands:
    - `git clone https://github.com/komar41/uic-dining-hall-navigation.git`
@@ -62,3 +60,8 @@ The app evaluation involves a comparative study between our developed mobile app
 - The map replicates the UIC dining hall, featuring numbered tooltips that guide users to the respective counters based on the most efficient route.
 - Clicking on tooltips reveals the food items to collect from each counter.
 <img src="assets/6_map.png" alt="map screen" style="display: block; margin-left: auto; margin-right: auto; width: 40%;"/>
+
+### Application Evaluation
+The app evaluation involved a comparative study between our developed mobile application and an existing solution, "Dine on Campus," to address user needs gathered from interviews. Participants, exposed to both apps, performed tasks within the dining hall—identifying foods meeting their dietary restrictions and locating these items within the space.
+
+In general terms the main takeaways of our analysis were twofold. First, about the importance of mapping and transposing the digital world to the physical, especially if the application is tied to real objects. In our case, the pictures of the dishes were a great support to that. Second, navigation is not only about helping people to find certain places, but can also be closely tied to mapping and decision making processes of creating visiting plans for instance.
