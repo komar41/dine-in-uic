@@ -111,32 +111,32 @@ Menu data is fetched from a public API exposed by the UIC United Table website. 
 - Central hub for navigation to all other screens
 - Starting point for setting up dietary restrictions and meal plans
 
-<img src="assets/1_home.png" alt="home screen" style="display: block; margin-left: auto; margin-right: auto; width: 40%;"/>
+<img src="assets/1_home.png" alt="home screen" style="display: block; margin-left: auto; margin-right: auto; width: 25%;"/>
 
 ### Set Dietary Restriction Screen
 - Users define their dietary preferences and restrictions
 - Redirects users back to the Home screen after setup
 
-<img src="assets/2_set_diet.png" alt="map screen" style="display: block; margin-left: auto; margin-right: auto; width: 40%;"/>
+<img src="assets/2_set_diet.png" alt="map screen" style="display: block; margin-left: auto; margin-right: auto; width: 25%;"/>
 
 ### Set Up New Plan Screen
 - Displays recommended food items based on user's dietary preferences
 - Allows users to create and save a meal plan for the day
 - Access to Dish Details screen for more information on food items
 
-<img src="assets/3_create_plan.png" alt="map screen" style="display: block; margin-left: auto; margin-right: auto; width: 40%;"/>
+<img src="assets/3_create_plan.png" alt="map screen" style="display: block; margin-left: auto; margin-right: auto; width: 25%;"/>
 
 ### My Plan Screen
 - Displays the user's saved meal plan for the day
 - Option to check dish details and navigate to the Map screen
 
-<img src="assets/4_my_plan.png" alt="map screen" style="display: block; margin-left: auto; margin-right: auto; width: 40%;"/>
+<img src="assets/4_my_plan.png" alt="map screen" style="display: block; margin-left: auto; margin-right: auto; width: 25%;"/>
 
 ### Dish Details Screen
 - Provides detailed information on selected food items
 - Includes dish description, ingredient list, and nutrition info
 
-<img src="assets/5_dish_details.png" alt="map screen" style="display: block; margin-left: auto; margin-right: auto; width: 40%;"/>
+<img src="assets/5_dish_details.png" alt="map screen" style="display: block; margin-left: auto; margin-right: auto; width: 25%;"/>
 
 ### Map Screen
 - Interactive map of the UIC dining hall
