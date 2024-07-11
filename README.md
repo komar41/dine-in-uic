@@ -76,7 +76,7 @@ Based on our low-fidelity prototypes, we created more detailed Figma prototypes.
 
 The Figma prototypes allowed for a more interactive and visually representative model of our final application.
 
-<img src="assets/figma.png" style="width: 60%;"/>
+<img src="assets/figma.png" style="width: 80%;"/>
 
 ## Implementation
 The application was built using:
