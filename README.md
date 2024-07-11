@@ -1,8 +1,6 @@
 # UIC Dining Hall Navigation App
 This project addresses the challenges faced by university students with dietary restrictions when navigating UIC's United Table in Student Center East. Through user research and iterative design, we developed a mobile application to improve the dining experience for students with specific dietary needs.
 
-![App Interface](image_url_here)
-
 - **Access this project:** https://github.com/komar41/uic-dining-hall-navigation
 - **Tools used:** React Native, Expo CLI, JavaScript, JSON, Generative AI (for dish images)
 
