@@ -144,7 +144,7 @@ Menu data is fetched from a public API exposed by the UIC United Table website. 
 - Numbered tooltips guide users to specific counters
 - Clicking tooltips reveals food items to collect at each counter
 
-<img src="assets/6_map.png" alt="map screen" style="display: block; margin-left: auto; margin-right: auto; width: 40%;"/>
+<img src="assets/6_map.png" alt="map screen" style="display: block; margin-left: auto; margin-right: auto; width: 25%;"/>
 
 ## Evaluation & Analysis
 We conducted a comparative study between our app and the existing "Dine on Campus" application. The study involved:
