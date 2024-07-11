@@ -65,7 +65,7 @@ Our low-fidelity prototypes included sketches of:
 
 These sketches formed the basis for our initial design concepts.
 
-<img src="assets/sketches.png" style="width: 60%;"/>
+<img src="assets/sketches.png" style="width: 80%;"/>
 
 ## Figma Prototypes
 Based on our low-fidelity prototypes, we created more detailed Figma prototypes. These included:
