@@ -32,14 +32,14 @@ Based on user interviews, we identified two primary user personas:
 - Requires easy location of foods aligning with dietary restrictions
 - Desires self-reliance when navigating the space
 
-<img src="assets/persona1.png" style="width: 60%;"/>
+<img src="assets/persona1.png" style="width: 80%;"/>
 
 2. "Regular visitor" (e.g., Jane Doe)
 - Prioritizes quick and efficient location of suitable foods
 - Wants to easily avoid specific food types (e.g., spicy foods, pork)
 - Needs clear answers about food options without relying on staff knowledge
 
-<img src="assets/persona2.png" style="width: 60%;"/>
+<img src="assets/persona2.png" style="width: 80%;"/>
 
 Common needs included:
 - Efficient navigation of dining hall menus
