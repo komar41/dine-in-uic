@@ -32,10 +32,14 @@ Based on user interviews, we identified two primary user personas:
 - Requires easy location of foods aligning with dietary restrictions
 - Desires self-reliance when navigating the space
 
+<img src="assets/persona1.png" style="width: 60%;"/>
+
 2. "Regular visitor" (e.g., Jane Doe)
 - Prioritizes quick and efficient location of suitable foods
 - Wants to easily avoid specific food types (e.g., spicy foods, pork)
 - Needs clear answers about food options without relying on staff knowledge
+
+<img src="assets/persona2.png" style="width: 60%;"/>
 
 Common needs included:
 - Efficient navigation of dining hall menus
@@ -61,6 +65,8 @@ Our low-fidelity prototypes included sketches of:
 
 These sketches formed the basis for our initial design concepts.
 
+<img src="assets/sketches.png" style="width: 60%;"/>
+
 ## Figma Prototypes
 Based on our low-fidelity prototypes, we created more detailed Figma prototypes. These included:
 1. A page for setting dietary restrictions
@@ -69,6 +75,8 @@ Based on our low-fidelity prototypes, we created more detailed Figma prototypes.
 4. Detailed food item pages with ingredient lists
 
 The Figma prototypes allowed for a more interactive and visually representative model of our final application.
+
+<img src="assets/figma.png" style="width: 60%;"/>
 
 ## Implementation
 The application was built using:
