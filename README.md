@@ -78,6 +78,9 @@ The application was built using:
 - Local JSON data for quiz questions and options
 - React Hooks (useState and useEffect) for efficient state management
 
+<img src="assets/architecture.png" style="width: 60%;"/>
+
+
 Data flow:
 1. Expo CLI initialization
 2. Component rendering
