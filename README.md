@@ -27,14 +27,14 @@ These insights informed our approach to integrating planning functionalities, ef
 
 ## Requirements
 Based on user interviews, we identified two primary user personas:
-**1. "Irregular visitor" (e.g., John Doe)**
+1. **"Irregular visitor" (e.g., John Doe)**
 - Needs a more organized dining hall experience
 - Requires easy location of foods aligning with dietary restrictions
 - Desires self-reliance when navigating the space
 
 <img src="assets/persona1.png" style="width: 80%;"/>
 
-**2. "Regular visitor" (e.g., Jane Doe)**
+2. **"Regular visitor" (e.g., Jane Doe)**
 - Prioritizes quick and efficient location of suitable foods
 - Wants to easily avoid specific food types (e.g., spicy foods, pork)
 - Needs clear answers about food options without relying on staff knowledge
