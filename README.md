@@ -169,3 +169,9 @@ Areas for improvement:
 
 ## Conclusion
 This project demonstrates the effectiveness of a user-centric design approach in addressing the challenges faced by students with dietary restrictions in university dining halls. The resulting mobile application offers a comprehensive solution for menu exploration, meal planning, and physical navigation within the dining space.
+
+## Team
+- Gustavo Moreira
+- Kazi Shahrukh Omar
+- Shanghao Li
+- Farah Kamleh
